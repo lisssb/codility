@@ -30,15 +30,15 @@ Complexity:
 Elements of input arrays can be modified.
 
 **/
+
 function solution(H) {
     var long = H.length;
     var res = [];
     var count = 0;
-    for(i=0;i<long;i++){
-        if(i===0){
-            res.push(H[i]);
-        }
-        else if(res[res.length-1]===H[i]){
+    res[0] = H[0];
+
+    for(i=1;i<long;i++){
+        if(res[res.length-1]===H[i]){
             count++;
         }
         else if(res[res.length-1]>H[i]){
@@ -52,7 +52,7 @@ function solution(H) {
                 res.push(H[i]);
             }
         }
-        else if(res[res.length-1]<H[i]){
+        else{
             res.push(H[i]);
         }
     }
